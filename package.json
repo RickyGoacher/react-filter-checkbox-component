@@ -1,0 +1,38 @@
+{
+  "name": "react-filter-checkbox-component",
+  "version": "1.0.0",
+  "description": "React component for building complex checkbox filtering",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "React",
+    "Filtering",
+    "React-filters",
+    "Checkbox",
+    "filters",
+    "Query",
+    "Params",
+    "Component",
+    "Filter",
+    "component"
+  ],
+  "author": "Ricky Goacher",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  },
+  "peerDependencies": {
+    "react": "^18"
+  }
+}
