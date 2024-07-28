@@ -1,4 +1,5 @@
 import { ReactElement, useState } from "react";
+import "./FilterComponent.css";
 
 interface PropsInterface {
     applyButtonText: string;
@@ -11,6 +12,8 @@ interface PropsInterface {
     };
     onSubmit: Function;
     selectedFilterRemoveIcon: string | ReactElement;
+    selectedFilterBackgroundColour: string;
+    selectedFilterTextColour: string;
 }
 
 const FilterComponent = (props:PropsInterface) => {
@@ -73,7 +76,7 @@ const FilterComponent = (props:PropsInterface) => {
 
         return ( 
             <div key={pos + Math.random()}>
-                <span>{item[0]}</span>
+                <span className="filter-section-label">{item[0]}</span>
                 <ul className="filter-section">
                     {renderMap}
                 </ul>
@@ -83,13 +86,15 @@ const FilterComponent = (props:PropsInterface) => {
 
     const RenderSelectedFilter = Object.entries(props.filters).map((type, pos) => {
         return getSelectedFilters[pos].map((selectedFilter, index) => {
-            return selectedFilter.label !== undefined && <span key={selectedFilter.label + Math.random()} className="selected-filter">{selectedFilter.label} <span onClick={(e) => handleCheckboxChange(pos, index, type[0])}>{props.selectedFilterRemoveIcon || 'X'}</span></span>;
+            return selectedFilter.label !== undefined && <span key={selectedFilter.label + Math.random()} className="selected-filter" style={{backgroundColor: props.selectedFilterBackgroundColour, color: props.selectedFilterTextColour}}>{selectedFilter.label} <span className="close-btn" onClick={(e) => handleCheckboxChange(pos, index, type[0])}>{props.selectedFilterRemoveIcon || 'X'}</span></span>;
         });   
     }).flat();    
 
     return (
-        <>
-            {RenderSelectedFilter}
+        <>  
+            <div className="selected-filters-container">
+                {RenderSelectedFilter}
+            </div>
             {RenderFilters}
             <div className="filter-button-container">
                 <button className="primary" onClick={() => props.onSubmit(getSelectedFilters)}>{props.applyButtonText || 'Apply Filters'}</button>
@@ -99,5 +104,10 @@ const FilterComponent = (props:PropsInterface) => {
     );
 
 }
+
+FilterComponent.defaultProps = {
+    selectedFilterBackgroundColour: "blue",
+    selectedFilterTextColour: "#fff"
+};
 
 export default FilterComponent;

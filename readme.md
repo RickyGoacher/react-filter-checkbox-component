@@ -23,6 +23,8 @@ Component options:
         applyButtonText={'Apply Filters'}
         clearButtonText={'Clear Filters'} 
         selectedFilterRemoveIcon={'X'}
+        selectedFilterBackgroundColour={'blue'}
+        selectedFilterTextColour={'#fff'}
       />
 
     - filters={Filters}
@@ -71,3 +73,9 @@ Component options:
 
     - selectedFilterRemoveIcon={'X'}
         Remove filter icon, accepts string or react component.
+
+    - selectedFilterBackgroundColour={'blue'}
+        Set background colour of selected filters.
+        
+    - selectedFilterTextColour={'#fff'} 
+        Set text colour for selected filters.      

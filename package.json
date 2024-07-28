@@ -1,8 +1,9 @@
 {
   "name": "react-filter-checkbox-component",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React component for building complex checkbox filtering",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "files": [
     "dist"
   ],
@@ -13,7 +14,7 @@
     }
   },
   "scripts": {
-    "build": "tsc"
+    "build": "rollup -c"
   },
   "keywords": [
     "React",
@@ -30,6 +31,14 @@
   "author": "Ricky Goacher",
   "license": "ISC",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/react": "^18.3.3",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.6.3",
     "typescript": "^5.5.3"
   },
   "peerDependencies": {

@@ -1,0 +1,42 @@
+.filter-section-label {
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+.filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.filter-item {
+    list-style: none;
+}
+
+.filter-item [type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    vertical-align: bottom;
+    margin-right: 6px;
+}
+
+.selected-filters-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.selected-filter {
+    display: inline-flex;
+    gap: 6px;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.close-btn {
+    cursor: pointer;
+}
