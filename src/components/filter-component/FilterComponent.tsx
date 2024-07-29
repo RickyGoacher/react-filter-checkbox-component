@@ -1,5 +1,4 @@
 import { ReactElement, useState } from "react";
-import "./FilterComponent.css";
 
 interface PropsInterface {
     applyButtonText: string;
