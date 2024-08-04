@@ -85,7 +85,7 @@ const FilterComponent = (props:PropsInterface) => {
 
     const RenderSelectedFilter = Object.entries(props.filters).map((type, pos) => {
         return getSelectedFilters[pos].map((selectedFilter, index) => {
-            return selectedFilter.label !== undefined && <span key={selectedFilter.label + Math.random()} className="selected-filter" style={{backgroundColor: props.selectedFilterBackgroundColour, color: props.selectedFilterTextColour}}>{selectedFilter.label} <span className="close-btn" onClick={(e) => handleCheckboxChange(pos, index, type[0])}>{props.selectedFilterRemoveIcon || 'X'}</span></span>;
+            return selectedFilter.label !== undefined && <span key={selectedFilter.label + Math.random()} className="selected-filter" style={{backgroundColor: props.selectedFilterBackgroundColour || "blue", color: props.selectedFilterTextColour || "#fff"}}>{selectedFilter.label} <span className="close-btn" onClick={(e) => handleCheckboxChange(pos, index, type[0])}>{props.selectedFilterRemoveIcon || 'X'}</span></span>;
         });   
     }).flat();    
 
@@ -103,10 +103,5 @@ const FilterComponent = (props:PropsInterface) => {
     );
 
 }
-
-FilterComponent.defaultProps = {
-    selectedFilterBackgroundColour: "blue",
-    selectedFilterTextColour: "#fff"
-};
 
 export default FilterComponent;
