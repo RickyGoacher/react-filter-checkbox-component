@@ -1,6 +1,6 @@
 {
   "name": "react-filter-checkbox-component",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React component for building complex checkbox filtering",
   "main": "./dist/cjs/index.js",
   "repository": {
