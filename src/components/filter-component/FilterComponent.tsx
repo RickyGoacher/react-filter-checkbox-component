@@ -17,17 +17,21 @@ interface PropsInterface {
 
 const FilterComponent = (props:PropsInterface) => {
 
-    const DefaultCheckedStatus = Object.entries(props.filters).map((item) => {
-        return new Array(item[1].length).fill(false)
-    });
+    const DefaultCheckedStatus = () => { 
+        return Object.entries(props.filters).map((item) => {
+            return new Array(item[1].length).fill(false)
+        });
+    };
 
-    const DefaultSelectedFilters = Object.entries(props.filters).map((item) => {
-        return new Array(item[1].length).fill({})
-    });
+    const DefaultSelectedFilters = () => { 
+        return Object.entries(props.filters).map((item) => {
+            return new Array(item[1].length).fill({})
+        });
+    };
 
-    const [getCheckedStatus, setCheckedStatus] = useState(DefaultCheckedStatus);
+    const [getCheckedStatus, setCheckedStatus] = useState(() => DefaultCheckedStatus());
 
-    const [getSelectedFilters, setSelectedFilters] = useState(DefaultSelectedFilters);
+    const [getSelectedFilters, setSelectedFilters] = useState(() => DefaultSelectedFilters());
 
     function handleCheckboxChange(pos1:number, position:number, filterLabel:string) {
 
@@ -48,12 +52,11 @@ const FilterComponent = (props:PropsInterface) => {
         });
 
         setSelectedFilters(updatedSelectedState);
-
     }
 
     function onClear() {
-        setCheckedStatus(DefaultCheckedStatus);
-        setSelectedFilters(DefaultSelectedFilters);
+        setCheckedStatus(DefaultCheckedStatus());
+        setSelectedFilters(DefaultSelectedFilters());
     }
 
     const RenderFilters = Object.entries(props.filters).map((item, pos) => {
@@ -101,7 +104,6 @@ const FilterComponent = (props:PropsInterface) => {
             </div>
         </>
     );
-
 }
 
 export default FilterComponent;
